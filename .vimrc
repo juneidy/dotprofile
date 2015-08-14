@@ -8,3 +8,5 @@ filetype plugin on
 syntax on
 hi Comment ctermfg=LightBlue
 set textwidth=80
+set cursorline
+set hlsearch
