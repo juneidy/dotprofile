@@ -10,4 +10,5 @@ hi Comment ctermfg=LightBlue
 set textwidth=80
 set cursorline
 set hlsearch
+au BufNewFile,BufRead *.less set filetype=less
 set scrolloff=5
