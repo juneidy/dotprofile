@@ -13,6 +13,11 @@ set hlsearch
 au BufNewFile,BufRead *.less set filetype=less
 set scrolloff=2
 
+" Sometimes in javascript the vimdiff highlight overlaps with comments colour
+if &diff
+    colorscheme evening
+ endif
+
 
 call plug#begin('~/.vim/plugged')
 
