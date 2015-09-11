@@ -14,3 +14,5 @@
 [user]
 	name = juneidy
 	email = juneidy.soo@gmail.com
+[push]
+	default = simple
