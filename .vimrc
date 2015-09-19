@@ -41,3 +41,14 @@ endtry
 nnoremap <space><space> :Unite -start-insert file_rec/async<cr>
 " reset not it is <C-l> normally
 :nnoremap <space>r <Plug>(unite_restart)
+
+" Relative or absolute number lines
+function! RelativeAbsoluteNumberToggle()
+    if(&nu == 1)
+        set rnu
+    else
+        set nu
+    endif
+endfunction
+
+nnoremap <C-n><C-n> :call RelativeAbsoluteNumberToggle()<CR>
