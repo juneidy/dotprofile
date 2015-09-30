@@ -1,5 +1,6 @@
 set tabstop=3
 set number
+set relativenumber
 set shiftwidth=3
 set colorcolumn=80
 set smartindent
@@ -45,9 +46,9 @@ nnoremap <space><space> :Unite -start-insert file_rec/async<cr>
 " Relative or absolute number lines
 function! RelativeAbsoluteNumberToggle()
 	if(&rnu == 1)
-		set rnu!
+		set relativenumber!
 	else
-		set rnu
+		set relativenumber
 	endif
 endfunction
 
