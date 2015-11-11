@@ -1,9 +1,11 @@
 [core]
 	editor = vim
-[diff]
-	tool = vimdiff
 [difftool]
 	prompt = false
+[diff]
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
 [alias]
 	d = difftool
 [merge]

@@ -1,80 +1,46 @@
 set tabstop=3
+set shiftwidth=3
 set number
 set relativenumber
-set shiftwidth=3
 set colorcolumn=80
 set smartindent
-filetype plugin indent on
-filetype plugin on
-syntax on
-hi Comment ctermfg=LightBlue
 set textwidth=80
 set cursorline
-set hlsearch
-au BufNewFile,BufRead *.less set filetype=less
 set scrolloff=2
+syntax on
+"set hlsearch "Default by neovim
 
 " Sometimes in javascript the vimdiff highlight overlaps with comments colour
 if &diff
     colorscheme evening
- endif
+endif
 
-
-call plug#begin('~/.vim/plugged')
-
-" Unite
-"   depend on vimproc
-"   ------------- VERY IMPORTANT ------------
-"   you have to go to .vim/plugin/vimproc.vim and do a ./make
-"   -----------------------------------------
-Plug 'Shougo/vimproc.vim'
-Plug 'Shougo/unite.vim'
-
-call plug#end()
-
-let g:unite_source_history_yank_enable = 1
-try
-  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-catch
-endtry
-" search a file in the filetree
-nnoremap <space><space> :Unite -start-insert file_rec/async<cr>
-" reset not it is <C-l> normally
-:nnoremap <space>r <Plug>(unite_restart)
-
-" Relative or absolute number lines
-function! RelativeAbsoluteNumberToggle()
-	if(&rnu == 1)
-		set relativenumber!
-	else
-		set relativenumber
-	endif
-endfunction
-
-nnoremap <C-n><C-n> :call RelativeAbsoluteNumberToggle()<CR>
-
-" For Vundle
-set nocompatible
-filetype off
+"""""""" BEGIN		VUNDLE
+"set nocompatible "default by neovim
+filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+"""""""" BEGIN		CUSTOM BUNDLE
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'marijnh/tern_for_vim'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+"""""""" END OF	CUSTOM BUNDLE
 
-call vundle#end()
-filetype plugin indent on
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -86,3 +52,27 @@ filetype plugin indent on
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+"""""""" END OF		VUNDLE
+
+"""""""" BEGIN		VIM-AIRLINE
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:ctrlp_working_path_mode = 'c'
+let g:airline_section=''
+"""""""" END OF	VIM-AIRLINE
+
+"""""""" BEGIN 	CTRLP.VIM
+set runtimepath^=$HOME/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<space><space>'
+"""""""" END OF	CTRLP.VIM
+
+" Relative or absolute number lines
+function! RelativeAbsoluteNumberToggle()
+	if(&rnu == 1)
+		set relativenumber!
+	else
+		set relativenumber
+	endif
+endfunction
+
+nnoremap <C-n><C-n> :call RelativeAbsoluteNumberToggle()<CR>
