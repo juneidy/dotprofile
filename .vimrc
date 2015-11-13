@@ -60,12 +60,12 @@ filetype plugin indent on    " required
 """""""" BEGIN		VIM-AIRLINE
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:ctrlp_working_path_mode = 'c'
-let g:
+let g:airline_theme='papercolor'
 """""""" END OF	VIM-AIRLINE
 
 """""""" BEGIN 	CTRLP.VIM
 set runtimepath^=$HOME/.vim/bundle/ctrlp.vim
+let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_map = '<space><space>'
 """""""" END OF	CTRLP.VIM
 
