@@ -9,6 +9,8 @@ set cursorline
 set scrolloff=2
 syntax on
 "set hlsearch "Default by neovim
+set laststatus=2 "To force vim displaying status line even in one split
+hi Comment ctermfg=LightBlue
 
 " Sometimes in javascript the vimdiff highlight overlaps with comments colour
 if &diff
@@ -36,6 +38,7 @@ Plugin 'marijnh/tern_for_vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'kien/ctrlp.vim'
 """""""" END OF	CUSTOM BUNDLE
 
 " All of your Plugins must be added before the following line
@@ -58,7 +61,7 @@ filetype plugin indent on    " required
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:ctrlp_working_path_mode = 'c'
-let g:airline_section=''
+let g:
 """""""" END OF	VIM-AIRLINE
 
 """""""" BEGIN 	CTRLP.VIM
