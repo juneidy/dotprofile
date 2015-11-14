@@ -1,0 +1,34 @@
+{
+	"plugins": [
+		"no-console-log"
+	],
+	"rules": {
+		// We don't care
+		"no-inner-declarations": [0],
+		"no-console-log/no-console-log": 2,
+		"no-console": 0,
+		"indent": [
+			2,
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"linebreak-style": [
+			2,
+			"unix"
+		],
+		"semi": [
+			2,
+			"always"
+		]
+	},
+	"env": {
+		"browser": true,
+		"amd": true
+	},
+	"globals": {
+		"idelve": false
+	},
+	"extends": "eslint:recommended"
+}
