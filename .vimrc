@@ -8,7 +8,7 @@ set textwidth=80
 set cursorline
 set scrolloff=2
 syntax on
-"set hlsearch "Default by neovim
+set hlsearch "Default by neovim
 set laststatus=2 "To force vim displaying status line even in one split
 hi Comment ctermfg=LightBlue
 
@@ -17,8 +17,19 @@ if &diff
     colorscheme evening
 endif
 
+" Relative or absolute number lines
+function! RelativeAbsoluteNumberToggle()
+	if(&rnu == 1)
+		set relativenumber!
+	else
+		set relativenumber
+	endif
+endfunction
+
+nnoremap <C-n><C-n> :call RelativeAbsoluteNumberToggle()<CR>
+
 """""""" BEGIN		VUNDLE
-"set nocompatible "default by neovim
+set nocompatible "default by neovim
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -64,7 +75,7 @@ let g:airline#extensions#default#layout = [
 			\ [ 'a', 'b', 'c' ],
 			\ [ 'z' ]
 			\ ]
-let g:airline_theme='papercolor'
+let g:airline_theme='kolor'
 """""""" END OF	VIM-AIRLINE
 
 """""""" BEGIN 	CTRLP.VIM
@@ -72,17 +83,6 @@ set runtimepath^=$HOME/.vim/bundle/ctrlp.vim
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_map = '<space><space>'
 """""""" END OF	CTRLP.VIM
-
-" Relative or absolute number lines
-function! RelativeAbsoluteNumberToggle()
-	if(&rnu == 1)
-		set relativenumber!
-	else
-		set relativenumber
-	endif
-endfunction
-
-nnoremap <C-n><C-n> :call RelativeAbsoluteNumberToggle()<CR>
 
 """""""" BEGIN		SYNTASTIC
 set statusline+=%#warningmsg#
@@ -96,4 +96,5 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_args = "--no-eslintrc --config $HOME/.eslintrc"
+nnoremap <C-m><C-m> :SyntasticToggleMode<CR>
 """""""" END OF	SYNTASTIC
