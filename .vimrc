@@ -60,6 +60,10 @@ filetype plugin indent on    " required
 """""""" BEGIN		VIM-AIRLINE
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#default#layout = [
+			\ [ 'a', 'b', 'c' ],
+			\ [ 'z' ]
+			\ ]
 let g:airline_theme='papercolor'
 """""""" END OF	VIM-AIRLINE
 
@@ -79,3 +83,17 @@ function! RelativeAbsoluteNumberToggle()
 endfunction
 
 nnoremap <C-n><C-n> :call RelativeAbsoluteNumberToggle()<CR>
+
+"""""""" BEGIN		SYNTASTIC
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_args = "--no-eslintrc --config $HOME/.eslintrc"
+"""""""" END OF	SYNTASTIC
