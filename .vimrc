@@ -72,7 +72,7 @@ filetype plugin indent on    " required
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#default#layout = [
-			\ [ 'a', 'b', 'c' ],
+			\ [ 'a', 'c' ],
 			\ [ 'z' ]
 			\ ]
 let g:airline_theme='kolor'
