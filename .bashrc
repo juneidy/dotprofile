@@ -11,3 +11,12 @@ export EDITOR="vim"
 
 #Uncomment bottom line if the terminal does not show vim-airline colour
 #export TERM='xterm-256color'
+
+
+# https://github.com/nvbn/thefuck
+eval $(thefuck --alias)
+
+# Start terminal with screen
+if [ $TERM != "screen" ] && [ $TERM != "screen-256color" ] ; then
+	screen
+fi
