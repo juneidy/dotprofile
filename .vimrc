@@ -7,10 +7,13 @@ set smartindent
 set textwidth=80
 set cursorline
 set scrolloff=2
-syntax on
-set hlsearch "Default by neovim
 set laststatus=2 "To force vim displaying status line even in one split
+set hlsearch "Default by neovim
 hi Comment ctermfg=LightBlue
+syntax on
+syntax enable
+
+nnoremap <C-p><C-p> :set paste!<CR>
 
 " Sometimes in javascript the vimdiff highlight overlaps with comments colour
 if &diff
@@ -40,8 +43,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 """""""" BEGIN		CUSTOM BUNDLE
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
+Plugin 'juneidysoo/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
@@ -50,6 +52,8 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'mxw/vim-jsx'
 """""""" END OF	CUSTOM BUNDLE
 
 " All of your Plugins must be added before the following line
@@ -96,5 +100,20 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_args = "--no-eslintrc --config $HOME/.eslintrc"
+"let g:syntastic_javascript_jscs_args= '--config $HOME/.jscsrc'
+
+if &diff
+	let g:syntastic_check_on_open = 0
+	colorscheme slate
+endif
+
 nnoremap <C-m><C-m> :SyntasticToggleMode<CR>
 """""""" END OF	SYNTASTIC
+
+"""""""" BEGIN		VIM-JAVASCRIPT
+let g:javascript_enable_domhtmlcss = 1
+"""""""" END OF	VIM-JAVASCRIPT
+
+"""""""" BEGIN		YOUCOMPLETEME
+let g:ycm_autoclose_preview_window_after_insertion = 1
+"""""""" END OF	YOUCOMPLETEME

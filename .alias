@@ -1,9 +1,11 @@
 alias ll="ls -l"
 alias lla="ls -la"
 alias vim="nvim"
+
 alias gits="git status"
 alias gita="git add"
 alias gitA="git add -A"
+alias gitl="git log"
 alias commit="git commit"
 alias branchclean="git branch --merged | grep -v \* | xargs git branch -D"
 alias gmv="git mv"
