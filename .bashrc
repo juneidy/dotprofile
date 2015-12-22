@@ -20,3 +20,26 @@ eval $(thefuck --alias)
 if [ $TERM != "screen" ] && [ $TERM != "screen-256color" ] ; then
 	screen
 fi
+
+# To Setup:
+# 1) Save the .git-completion.bash file found here:
+#    https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+# 2) Add the following lines to your .bash_profile, be sure to reload (for
+# example: source ~/.bash_profile) for the changes to take effect:
+
+# Git branch bash completion
+if [ -f ~/.git-completion.bash ]; then
+	. ~/.git-completion.bash
+
+	# Add git completion to aliases
+	__git_complete ck _git_checkout
+	__git_complete branch _git_branch
+	__git_complete merge _git_merge
+	__git_complete pull _git_pull
+	__git_complete push _git_push
+	__git_complete gits _git_status
+	__git_complete gita _git_add
+	__git_complete gitl _git_log
+	__git_complete commit _git_commit
+	__git_complete gmv _git_mv
+fi
