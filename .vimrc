@@ -14,6 +14,7 @@ syntax on
 syntax enable
 
 nnoremap <C-p><C-p> :set paste!<CR>
+nnoremap <C-l><C-l> :set fileformat=unix<CR>
 
 " Sometimes in javascript the vimdiff highlight overlaps with comments colour
 if &diff
