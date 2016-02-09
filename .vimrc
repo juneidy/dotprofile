@@ -15,6 +15,9 @@ syntax enable
 
 nnoremap <C-p><C-p> :set paste!<CR>
 nnoremap <C-l><C-l> :set fileformat=unix<CR>
+nnoremap <C-j><C-j> :%!python -m json.tool<CR>
+nnoremap <C-k><C-k> :%s/\(\s\\|\n\)//g<CR>
+nnoremap <C-s> :wa<CR>
 
 " Sometimes in javascript the vimdiff highlight overlaps with comments colour
 if &diff
