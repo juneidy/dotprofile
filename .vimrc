@@ -91,6 +91,7 @@ set runtimepath^=$HOME/.vim/bundle/ctrlp.vim
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_map = '<space><space>'
 let g:ctrlp_by_filename = 1
+let g:ctrlp_custom_ignore = 'node_modules\|build\|bower_components\|certs\|resources'
 """""""" END OF	CTRLP.VIM
 
 """""""" BEGIN		SYNTASTIC
